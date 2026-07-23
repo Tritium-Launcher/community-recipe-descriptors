@@ -1,0 +1,4 @@
+include = ["mods/**/descriptor.toml"]
+
+[schema]
+path = "recipe-descriptor.schema.json"

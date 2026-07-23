@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Tritium-Launcher/community-recipe-descriptors/main/recipe-descriptor.schema.json",
+  "title": "Tritium Recipe Descriptor",
+  "type": "object",
+  "properties": {
+    "recipe": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9_.-]+:[a-z0-9_.-]+$" },
+        "display_name": { "type": "string" },
+        "width": { "type": "integer", "minimum": 1, "maximum": 512, "default": 176 },
+        "height": { "type": "integer", "minimum": 1, "maximum": 512, "default": 166 },
+        "catalysts": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z0-9_.-]+:[a-z0-9_.-]+$" }
+        }
+      },
+      "required": ["id"]
+    },
+    "slot": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "role": { "type": "string", "enum": ["input", "output", "fuel", "energy", "duration", "custom"] },
+          "slot_type": { "type": "string", "default": "ITEM" },
+          "x": { "type": "integer", "minimum": 0, "maximum": 512 },
+          "y": { "type": "integer", "minimum": 0, "maximum": 512 },
+          "w": { "type": "integer", "minimum": 1, "maximum": 512, "default": 18 },
+          "h": { "type": "integer", "minimum": 1, "maximum": 512, "default": 18 },
+          "max_capacity": { "type": "integer", "minimum": 1, "default": 64 },
+          "display_only": { "type": "boolean", "default": false }
+        },
+        "required": ["id", "role", "x", "y"]
+      }
+    },
+    "option": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": { "type": "string" },
+          "label": { "type": "string" },
+          "type": { "type": "string", "enum": ["text", "integer", "checkbox"], "default": "text" },
+          "placeholder": { "type": ["string", "integer", "number"], "default": "" },
+          "default": { "type": ["string", "integer", "number"], "default": "" }
+        },
+        "required": ["key"]
+      }
+    },
+    "templates": {
+      "type": "object",
+      "properties": {
+        "formats": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z0-9_]+$": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-z0-9_]*$": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "variant_defaults": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z0-9_]+$": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-z0-9_]+$": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "requirements": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z0-9_]+$": {
+              "type": "object",
+              "properties": {
+                "mod": { "type": "string" },
+                "sources": {
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z0-9_]+$": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "required": ["mod"],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": ["recipe"],
+  "additionalProperties": false
+}

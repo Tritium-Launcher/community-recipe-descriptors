@@ -1,0 +1,50 @@
+[recipe]
+id = "ae2:charger"
+display_name = "Charger"
+width = 100
+height = 44
+catalysts = ["ae2:charger"]
+
+[[slot]]
+id = "input"
+role = "input"
+slot_type = "ITEM"
+x = 10
+y = 14
+w = 16
+h = 16
+max_capacity = 1
+
+[[slot]]
+id = "output"
+role = "output"
+slot_type = "ITEM"
+x = 70
+y = 14
+w = 16
+h = 16
+max_capacity = 1
+
+[templates]
+
+[templates.formats.json]
+_ = """
+{
+  "type": "ae2:charger",
+  "ingredient": {{ input }},
+  "result": {{ output }}
+}
+"""
+
+[templates.formats.kubejs]
+_ = """
+event.recipes.ae2.charger(
+  {{ output }},
+  {{ input }}
+)
+"""
+
+[templates.requirements.kubejs]
+mod = "applied-kubejs"
+sources.modrinth = "applied-kubejs"
+sources.curseforge = "1469724"
