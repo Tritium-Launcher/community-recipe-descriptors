@@ -1,6 +1,6 @@
 # community-recipe-descriptors
 
-TOML recipe type descriptors for mods that don't implement the Tritium Mod API.
+Recipe Type descriptors for mods that don't implement [Tritium Mod API](https://github.com/Tritium-Launcher/Tritium-Mod-API).
 Used by [Tritium Launcher](https://github.com/Tritium-Launcher)'s Recipe Builder
 to provide recipe support without requiring the full Tritium Mod API.
 
