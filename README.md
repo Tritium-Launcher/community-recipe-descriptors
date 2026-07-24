@@ -72,7 +72,7 @@ x = 70
 y = 14
 w = 16
 h = 16
-max_capacity = 1
+max_capacity = 64
 
 [templates]
 
@@ -81,16 +81,13 @@ _ = """
 {
   "type": "ae2:charger",
   "ingredient": {{ input }},
-  "result": {{ output }}
+  "result": {"id": {{ output | id }}, "count": {{ qty:output }}}
 }
 """
 
 [templates.formats.kubejs]
 _ = """
-event.recipes.ae2.charger(
-  {{ output }},
-  {{ input }}
-)
+AE2Recipes.charger(event, {{ output | id }}, {{ input | id }})
 """
 
 [templates.requirements.kubejs]
