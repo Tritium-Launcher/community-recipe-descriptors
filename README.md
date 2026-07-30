@@ -4,6 +4,12 @@ Recipe Type descriptors for mods that don't implement [Tritium Mod API](https://
 Used by [Tritium Launcher](https://github.com/Tritium-Launcher)'s Recipe Builder
 to provide recipe support without requiring the full Tritium Mod API.
 
+## Should I use this, or Tritium Mod API?
+Descriptors here are best for mods which have recipe types that do not have custom registrable content.
+Using Tritium Mod API allows mod devs to show that custom content in the Registry Browser, then drag-and-drop it into the Recipe Builder.
+For mods like Mekanism that have Chemicals, Pigment and etc, it's better to implement TMAPI.
+For mods like Botania that has Mana, it's better to upload a descriptor here, because Mana acts as a number value, not a registry object. No need to implement TMAPI, because it wouldn't be able to take advantage of all of its features.
+
 ## Adding a mod
 
 Create a directory under `mods/{namespace}/` and add a `descriptor.toml` file.
