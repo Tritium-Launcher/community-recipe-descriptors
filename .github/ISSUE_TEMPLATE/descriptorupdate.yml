@@ -1,0 +1,43 @@
+name: Descriptor Update
+description: Report a needed update to an existing recipe descriptor.
+title: "[Descriptor Update]: "
+labels: ["Descriptor Update"]
+body:
+  - type: input
+    id: affected-namespace
+    attributes:
+      label: Affected Namespace
+      description: The mod namespace the descriptor lives under.
+    validations:
+      required: true
+
+  - type: input
+    id: affected-recipe-type
+    attributes:
+      label: Affected Recipe Type
+      description: The recipe type ID the update relates to. Leave blank if the update affects the whole namespace.
+    validations:
+      required: false
+
+  - type: textarea
+    id: update-details
+    attributes:
+      label: Update Details
+      description: >
+        Describe what has changed in the mod that requires the descriptor to be
+        updated. This could include a recipe type ID rename, a change to slot
+        structure or positions, a recipe type being added or removed in a
+        certain version, a change to the expected template output format,
+        an output format to add, or something else.
+        Include the version(s) the change applies to if known.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: >
+        Any extra helpful context.
+    validations:
+      required: false
