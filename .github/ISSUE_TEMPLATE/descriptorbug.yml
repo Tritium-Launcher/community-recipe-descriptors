@@ -1,7 +1,7 @@
-name: Descriptor Bug Report
+name: Descriptor Issue Report
 description: Report an issue with an existing recipe descriptor.
-title: "[Descriptor Bug]: "
-labels: ["descriptor bug"]
+title: "[Descriptor Issue]: "
+labels: ["Descriptor Issue"]
 body:
   - type: input
     id: affected-namespace
