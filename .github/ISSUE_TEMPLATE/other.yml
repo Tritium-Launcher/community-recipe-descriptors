@@ -1,0 +1,22 @@
+name: Other
+description: Report an issue that doesn't fit any other category.
+title: "[Other]: "
+labels: ["Other Issue"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: >
+        Describe the issue.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: >
+        Any extra helpful context.
+    validations:
+      required: false
