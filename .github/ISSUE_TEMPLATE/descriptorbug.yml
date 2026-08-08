@@ -1,0 +1,41 @@
+name: Descriptor Bug Report
+description: Report an issue with an existing recipe descriptor.
+title: "[Descriptor Bug]: "
+labels: ["descriptor bug"]
+body:
+  - type: input
+    id: affected-namespace
+    attributes:
+      label: Affected Namespace
+      description: The mod namespace the descriptor lives under.
+    validations:
+      required: true
+
+  - type: input
+    id: affected-recipe-type
+    attributes:
+      label: Affected Recipe Type
+      description: The recipe type ID the bug relates to. Leave blank if the issue affects the whole namespace.
+    validations:
+      required: false
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem Description
+      description: >
+        Describe what's wrong with the descriptor. This could include incorrect
+        template output, wrong slot positions or sizes, an incorrect version
+        range, a missing recipe type, a broken sprite, or incorrect metadata, 
+        or something else. If you know what the correct value should be, include that too.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: >
+        Any extra helpful context.
+    validations:
+      required: false
