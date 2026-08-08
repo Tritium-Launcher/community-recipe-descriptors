@@ -1,0 +1,36 @@
+name: Mod Request
+description: Request a recipe descriptor for a mod that doesn't yet have one.
+title: "[Mod Request]: "
+labels: ["Mod Request"]
+body:
+  - type: textarea
+    id: recipe-types
+    attributes:
+      label: Recipe Types
+      description: >
+        Describe each recipe type this mod adds. Include the recipe type ID, inputs and outputs.
+
+        Alternatively, add a URL to existing documentation.
+    validations:
+      required: true
+
+  - type: textarea
+    id: version-differences
+    attributes:
+      label: Version Differences
+      description: >
+        If recipe types change between mod or Minecraft versions, describe
+        those changes. ID changes, structural changes, or recipe
+        types that were added or removed. Leave blank if the recipe types
+        are stable across versions.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-resources
+    attributes:
+      label: Additional Resources
+      description: >
+        Add links to source code, a wiki, or anything else relevant and helpful.
+    validations:
+      required: false
